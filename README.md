@@ -5,7 +5,7 @@ Création d'une application permettant un CRED d'étudiant
 ## Stack
 - Front : 
     - node - version v12.19.0
-    - React Native  -  version : 17.0.1
+    - React JS  -  version : 17.0.1
 - Back  :
     - Laravel
 
