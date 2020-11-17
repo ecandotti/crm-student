@@ -1,5 +1,5 @@
-import { TitleBasic } from './TitleBasics'
-import Cards from './Card'
+import Card from './Card'
+import Header from './Header'
 import userButton  from '../img/userButton.svg'
 //import image_list from '../img/list.png'
 //import image_grid from '../img/grid.png'
@@ -24,19 +24,19 @@ const ListOfStudents = (props) => {
                 <div className="top">
                     <div className="heading">        
                         <div>
-                            <TitleBasic title="Liste d'étudiants" nbStudent={studentsArray.length}/>
+                            <Header title="Liste d'étudiants" nbStudent={studentsArray.length}/>
                             <div>
                                 <button className="add button">
-                                    <p>ajouter</p> <img src={userButton} alt=""/>
+                                    <p>Ajouter</p> <img src={userButton} alt=""/>
                                 </button>
                             </div>
                         </div>
                     </div>
                     <button onClick={props.handler_showListGrid} className={showListGrid  ? "button  mode  listMode" : "button mode gridMode"}></button>
                 </div>
-                <Cards showListGrid={showListGrid} students={studentsArray}/>
+                <Card showListGrid={showListGrid} students={studentsArray}/>
             </>
         )
 }
 
-export default  ListOfStudents
+export default ListOfStudents
