@@ -19,13 +19,7 @@ const ListOfStudents = (props) => {
 
         return(
             <>
-                <div className="top">
-                    <div className="heading">        
-                        <div>
-                            <Header title="Liste d'étudiants" nbStudent={studentsArray.length} showListGrid={props.showListGrid} handler_showListGrid={props.handler_showListGrid}/>
-                        </div>
-                    </div>
-                </div>
+                <Header title="Liste d'étudiants" nbStudent={studentsArray.length} showListGrid={props.showListGrid} handler_showListGrid={props.handler_showListGrid}/>
                 <Card showListGrid={showListGrid} students={studentsArray}/>
             </>
         )
