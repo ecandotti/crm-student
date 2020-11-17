@@ -1,0 +1,207 @@
+.color_grey {
+    color: #EDEDED
+}
+.top{
+    margin: auto;
+}
+.heading::after {
+    content: "";
+    display: flex;
+    width: 100%;
+    background: #ededed;
+    height: 1px;
+    margin: auto;
+    margin-top: 3vh;
+}
+
+.mode{
+    height:30px;
+    width:30px;
+    background-color: #8FBF97;
+    transition: 0.5s;
+    background-size: cover;
+}
+
+tr>div{
+    display: flex;
+}
+
+.listMode{
+    background-image: url('../img/list.png');
+}
+
+.gridMode{
+    background-image: url('../img/grid.png');
+}
+
+.heading{
+    margin-top: 2em;
+    display: inline-grid;
+    width: 1050px;
+}
+
+.heading> div{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.heading> div>p{   
+    display: flex;
+    flex: 1 1;
+    bottom: 0;
+    line-height: 50px;
+}
+
+.heading>div >h1{
+    width: 70%;
+    text-align: left;
+    flex: 2;
+}
+
+.heading>div>div{
+    width: 70%;
+    text-align: center;
+    flex: 1;
+
+
+}
+
+.card>.right>img {
+    width: 100px;
+    border-radius: 50%;
+    border: 1px solid #455a64;
+    margin-right: 10px;
+
+    margin-left: 10px;
+}
+
+
+
+.top {
+    display: table;
+    height: auto;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+.top img{
+    width: 30px;
+    margin: 5px;
+    height: 30px;
+}
+.edit {
+    border-top-right-radius: 5px;
+    background-color: #AC26FF;
+}
+
+.delete {
+    border-bottom-left-radius: 5px;
+    background-color: #FF6712;
+}
+
+.edit,
+.trash {
+    display: table-cell;
+}
+
+.heading>p {
+    float: left;
+    width: 45%;
+}
+
+.container {
+
+    width: 60%;
+    margin: auto;
+    margin-top: 2em;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: safe;
+}
+
+
+.returnThis{
+transform: rotate(0.5turn);}
+.card h3 {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.card.left p {
+    margin: 0;
+
+}
+
+h1 {
+    color: #333;
+    text-align: left;
+}
+
+.left {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    width: 70%;
+
+}
+
+.left>h3 {
+    margin-top: 2em
+}
+
+
+
+.right {
+    width: 30%;
+    margin: auto;
+}
+.list>tr{
+    background: #fafafa;
+    font-size: 18px;
+    padding: 0.4em;
+
+}
+.list> tr:nth-child(2n){
+background: #C3FFFE;
+}
+.list{
+    width: 85%;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+    margin: auto
+}
+
+.list> tr>th{
+    background: #ff6712;
+    color: white;
+    font-size: 22px;
+    padding: 0.5em;
+
+}
+
+
+.card {
+    display: flex;
+    min-height: 115px;
+    min-width: 45%;
+    margin: 2%;
+    width: 45%;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    border: 1px solid #ededed;
+    background-color: #FAFAFA;
+    border-bottom: 7px solid #FF6712;
+
+}
+.add{
+    background-color: #8FBF97;
+    color:white;
+    font-size: 20px;
+    display: flex;
+}
+button:hover,.button,.mode{
+    cursor: pointer;   
+    border:none;
+}
+

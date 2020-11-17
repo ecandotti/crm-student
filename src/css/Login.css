@@ -1,0 +1,75 @@
+#login{
+background-image: url('../img/1018.png');
+background-repeat: repeat;
+width: 100%;
+height: 100vh;
+display: flex;
+
+}
+
+input{
+    margin: 5%;
+    border-radius: 50px;
+    border: 1px solid #00000066;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#login a{
+margin: 0;
+margin-top: 0.5em;
+display:block;
+color:#333;
+
+}
+.cardLogin{
+    background-color: white;
+    max-width: 800px;
+    margin: auto;
+    padding: 10em;
+    padding-bottom: 2em;
+    padding-top: 2em;
+
+    border-top: 7px solid #FF6712;
+    border-bottom: 7px solid #FF6712;
+
+}
+
+#login button{
+    background-color:#8FBF97 ;
+    border:0;
+    padding: 15px;
+    color:white;
+    font-weight: 800;
+    font-size: large;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 2em;
+
+
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+    margin-bottom: 0;
+}
+
+
+.inputs::after, .inputs::before{
+    content: "";
+    display: flex;
+    width: 100%;
+    background: #ededed;
+    height: 1px;
+    margin: auto;
+}
+.inputs::after {
+
+    margin-top: 3vh;
+}
+.inputs::before {
+
+    margin-bottom: 3vh;
+}

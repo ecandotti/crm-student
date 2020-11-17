@@ -1,0 +1,86 @@
+.navbar {
+
+    background-color: #FF6712;
+    text-align: left;
+    padding: 0.5em;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+}
+
+
+.input {
+    margin: 5%;
+}
+
+.logo {
+    width: 60px;
+}
+
+.userInfo {
+    font-size: 18px;
+    display: flex;
+    ;
+}
+
+.userInfo>p {
+    margin: auto;
+    font-weight: 600;
+}
+
+.userInfo>img {
+    border: 1px solid #333;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    margin: auto;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    
+}
+
+.userInfo>button:focus {
+    border: none;
+}
+
+.userInfo>button:hover {
+    border: none;
+}
+
+.Buttonlist:hover{
+    cursor: pointer; 
+      transition:.2s;
+
+}
+
+
+.userInfo>button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 25px;
+}
+
+.userInfo>ul {
+    position: absolute;
+    list-style: none;
+    background: #FF6712;
+    margin: 0;
+    z-index: 997;
+    padding: 0;
+    right: 0;
+    margin-top: 3em;
+    color: white;
+}
+
+.userInfo>ul>li {
+    border-top: 1px solid white;
+    padding: 1em;
+    position: relative;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.userInfo>ul>li:nth-child(1) {
+    border-top: none;
+}
