@@ -1,4 +1,6 @@
-import '../css/Menu.css'
+//import '../css/Menu.css'
+import React from 'react'
+import 'materialize-css'
 import logoSM from  '../img/Logo.svg'
 import UserConnexion from './UserConnexion'
 import imageProfile from '../img/man.svg'
@@ -16,12 +18,19 @@ const NavBar = (props) => {
     }
 
     return (
-        <div className="navbar">
-            <div  className="logo"> 
-                <img alt="Logo Student Manaager" src={logoSM}/>
-            </div>
-            <UserConnexion showSubMenu={showSubMenu} loginhandler={loginhandler} handlerNav={handlerNav} user={user} />
+        <div className="navbar-fixed">
+            <nav>
+                <div className="nav-wrapper blue">
+                    <div className="brand-logo left"> 
+                        <img alt="Logo Student Manaager" src={logoSM}/>
+                    </div>
+                    <ul className="right hide-on-med-and-down">
+                        <li><UserConnexion showSubMenu={showSubMenu} loginhandler={loginhandler} handlerNav={handlerNav} user={user} /></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
+        
     )
 }
 
