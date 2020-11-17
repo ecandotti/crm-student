@@ -1,31 +1,28 @@
-import user  from '../img/man.svg'
-import edit from '../img/icon/edit.svg'
-import icon_trash from '../img/icon/trash.svg'
+import { MdModeEdit } from 'react-icons/md'
+import { HiTrash } from 'react-icons/hi'
 
 const Grid = (props) => {
 
-    const name = props.student.name
+    const firstName = props.student.name
     const lastName = props.student.lastName
-    const speciality = props.student.lastName
+    const speciality = props.student.speciality
 
     return (
         <>
-            <div className="card">
-                <div className="right">
-                    <img src={user} alt=""/>
+            <div className="col s6 m6 l6">
+                <div className="card horizontal">
+                <div className="card-image">
+                    <img src="https://icons-for-free.com/iconfiles/png/512/human+person+user+icon-1320196276306824343.png" alt=""/>
                 </div>
-                <div className="left">
-                    <h3> {name}  {lastName}</h3>
-                    <p> {speciality}</p>
+                <div className="card-stacked">
+                    <div className="card-content">
+                        <h3 className="header">{ firstName }  { lastName }</h3>
+                        <p>Admin : ?<br/>{ speciality }</p>
+                    </div>
+                    <div className="card-action">
+                        <button className="btn red waves-effect waves-light"><HiTrash /></button> <button className="btn disabled"><MdModeEdit /></button>
+                    </div>
                 </div>
-                <div className="top">
-                    <div className="delete">
-                        <img src={icon_trash} alt=""/>
-                    </div>
-
-                    <div className="edit">
-                        <img src={edit} alt=""/>
-                    </div>
                 </div>
             </div>
         </>
