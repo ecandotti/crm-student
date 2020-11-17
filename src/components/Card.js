@@ -4,20 +4,21 @@ import List from './List'
 const Card = (props) => {
 
     const moded = props.showListGrid
+    let GridView = props.students.map((student) => ( <Grid student={student} key={student.id}/> ))
+    let ListView = props.students.map((student) => ( <List student={student} key={student.id}/> ))
 
     if( moded ) {
 
-        let ListView = props.students.map((student) => ( <List student={student} key={student.id}/> ))
         return (
-            <div className="container">
-                <table className="list">  
-                    <tbody className="list">
+            <div>
+                <table>  
+                    <tbody>
                         <tr>
                             <th></th>
-                            <th>id</th>
-                            <th>Image</th>
-                            <th>First name</th>
-                            <th>Last name</th>
+                            <th>ID</th>
+                            <th>Photo de profile</th>
+                            <th>Prénom</th>
+                            <th>Nom</th>
                             <th>Spécialité</th>
                         </tr>
                         { ListView }
@@ -26,12 +27,11 @@ const Card = (props) => {
             </div>
         )
     } else {
-
-        let GridView = props.students.map((student) => ( <Grid student={student} key={student.id}/> ))
         return (
-            <div className="container">
+            <div className="row">
                 { GridView }
             </div>
+            
         )
     }
 }
