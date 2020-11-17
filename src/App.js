@@ -1,19 +1,17 @@
-import './App.css';
-
 import React from 'react'
-import { Nav } from './components/Menu'
-import ListOfStudents  from './components/ListOfStudents'
+import NavBar from './components/NavBar'
+import ListOfStudents from './components/ListOfStudents'
 
 
-class App  extends React.Component {
+class App extends React.Component {
   constructor() {
     super()
 
     this.state = {
       navMenu: false,
-      showSubMenu:false,
-      isLogged:true,
-      showListGrid:false,
+      showSubMenu: false,
+      isLogged: true,
+      showListGrid: false,
 
     }
 
@@ -37,7 +35,7 @@ class App  extends React.Component {
   render(){
     return (
       <div>
-        <Nav showSubMenu={this.state.showSubMenu} handlerNav={this.handler_showSubMenu} handler_login={this.handler_login} />
+        <NavBar showSubMenu={this.state.showSubMenu} handlerNav={this.handler_showSubMenu} handler_login={this.handler_login} />
         <ListOfStudents showListGrid={this.state.showListGrid} handler_showListGrid={this.handler_showListGrid} />
       </div>
     )

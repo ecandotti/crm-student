@@ -1,13 +1,13 @@
 # Student Manager 
 ## Projet
-Création d'une application permettant un CRED d'étudiant
+Création d'une application permettant un CRD d'étudiant
 
 ## Stack
 - Front : 
     - node - version v12.19.0
     - React JS  -  version : 17.0.1
 - Back  :
-    - Laravel
+    - Java
 
 - Bdd:
     - MySQL
