@@ -6,6 +6,7 @@ Création d'une application permettant un CRD d'étudiant
 - Front : 
     - node - version v12.19.0
     - React JS  -  version : 17.0.1
+    - MaterializeCSS  -  version : 1.0.0-rc.2
 - Back  :
     - Java
 
