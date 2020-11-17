@@ -1,6 +1,6 @@
 import user  from '../img/man.svg'
-import edit from '../img/icon/edit.svg'
-import icon_trash from '../img/icon/trash.svg'
+import { MdModeEdit } from 'react-icons/md'
+import { HiTrash } from 'react-icons/hi'
 
 const List = (props) => {
 
@@ -13,11 +13,11 @@ const List = (props) => {
             <tr>    
                 <td>
                      <div className="delete">
-                        <img src={ icon_trash } alt=""/>
+                        <HiTrash />
                     </div>
 
                     <div className="edit">
-                        <img src={ edit } alt=""/>
+                        <MdModeEdit />
                     </div>
                 </td>
 
