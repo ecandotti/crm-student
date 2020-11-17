@@ -1,8 +1,5 @@
 import Card from './Card'
 import Header from './Header'
-import userButton  from '../img/userButton.svg'
-//import image_list from '../img/list.png'
-//import image_grid from '../img/grid.png'
 
 const ListOfStudents = (props) => {
 
@@ -17,6 +14,7 @@ const ListOfStudents = (props) => {
     ]
 
     console.log(studentsArray)
+
     let showListGrid = props.showListGrid
 
         return(
@@ -24,15 +22,9 @@ const ListOfStudents = (props) => {
                 <div className="top">
                     <div className="heading">        
                         <div>
-                            <Header title="Liste d'étudiants" nbStudent={studentsArray.length}/>
-                            <div>
-                                <button className="add button">
-                                    <p>Ajouter</p> <img src={userButton} alt=""/>
-                                </button>
-                            </div>
+                            <Header title="Liste d'étudiants" nbStudent={studentsArray.length} showListGrid={props.showListGrid} handler_showListGrid={props.handler_showListGrid}/>
                         </div>
                     </div>
-                    <button onClick={props.handler_showListGrid} className={showListGrid  ? "button  mode  listMode" : "button mode gridMode"}></button>
                 </div>
                 <Card showListGrid={showListGrid} students={studentsArray}/>
             </>
