@@ -1,4 +1,4 @@
-const UserConnexion =  (props) => {
+const UserConnexion = (props) => {
     
     let showMenu = props.showSubMenu
     let loginhandler = props.loginhandler
@@ -18,10 +18,8 @@ const UserConnexion =  (props) => {
     console.log(image)
 
     return(
-        <div className="userInfo" >
+        <div className="center" >
             <p> {user} {lastName} </p>
-
-            <img src={image} alt=""/>
     
             <p className={showMenu ? 'Buttonlist returnThis' : 'Buttonlist' } onClick={props.handlerNav}>▾</p>
             {showMenu ?
