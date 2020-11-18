@@ -1,5 +1,4 @@
 import Card from './Card'
-import Header from './Header'
 
 const ListOfStudents = (props) => {
 
