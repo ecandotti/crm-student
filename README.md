@@ -1,5 +1,5 @@
 # Student Manager 
-## Projet # Branch 'Dev'
+## Projet # Branch 'Dev'->'Enzo'
 Création d'une application permettant un CRD d'étudiant
 
 ## Stack
