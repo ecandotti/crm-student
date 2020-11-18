@@ -11,18 +11,19 @@ const Card = (props) => {
 
         return (
             <div>
-                <table>  
-                    <tbody>
-                        <tr>
-                            <th></th>
+                <table className="striped">  
+                    <thead className="blue">
+                        <tr className="white-text">
                             <th>ID</th>
-                            <th>Photo de profile</th>
-                            <th>Prénom</th>
-                            <th>Nom</th>
-                            <th>Spécialité</th>
+                            <th className="center">Nom</th>
+                            <th className="center">Prénom</th>
+                            <th className="center">Spécialité</th>
+                            <th className="right-align">Options</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         { ListView }
-                    </tbody> 
+                    </tbody>
                 </table>
             </div>
         )
