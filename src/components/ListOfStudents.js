@@ -19,7 +19,6 @@ const ListOfStudents = (props) => {
 
         return(
             <>
-                <Header title="Liste d'étudiants" nbStudent={studentsArray.length} showListGrid={props.showListGrid} handler_showListGrid={props.handler_showListGrid}/>
                 <Card showListGrid={showListGrid} students={studentsArray}/>
             </>
         )

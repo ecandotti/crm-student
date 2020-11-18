@@ -1,5 +1,8 @@
 import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import AddStudent from './AddStudent'
 import NavBar from './NavBar'
+import Header from './Header'
 import ListOfStudents from './ListOfStudents'
 import 'materialize-css'
 
@@ -12,7 +15,15 @@ class App extends React.Component {
       showSubMenu: false,
       isLogged: true,
       showListGrid: false,
-
+      studentsArray: [
+            {name:'Joe', lastName:'hell', speciality:"dev mobile", id:"0920Kda"},
+            {name:'Joe', lastName:'hell', speciality:"dev mobile", id:"0920Kdz"},
+            {name:'Joe', lastName:'hell', speciality:"dev mobile", id:"0920Kde"},
+            {name:'Joe', lastName:'hell', speciality:"dev mobile", id:"0920Kdr"},
+            {name:'Joe', lastName:'hell', speciality:"dev mobile", id:"0920Kdt"},
+            {name:'Joe', lastName:'hell', speciality:"dev mobile", id:"0920Kdy"},
+            {name:'Joe', lastName:'hell', speciality:"dev mobile", id:"0920Kdu"}
+        ]
     }
 
     this.handler_showSubMenu = this.handler_showSubMenu.bind(this)
@@ -35,10 +46,22 @@ class App extends React.Component {
   render(){
     return (
       <>
-        <NavBar showSubMenu={this.state.showSubMenu} handlerNav={this.handler_showSubMenu} handler_login={this.handler_login} />
-        <div className="container">
-          <ListOfStudents showListGrid={this.state.showListGrid} handler_showListGrid={this.handler_showListGrid} />
-        </div>
+        <Router>
+            <NavBar showSubMenu={this.state.showSubMenu} handlerNav={this.handler_showSubMenu} handler_login={this.handler_login} />
+            <div className="container"><Header title="Liste d'étudiants" nbStudent={this.state.studentsArray.length} showListGrid={this.state.showListGrid} handler_showListGrid={this.handler_showListGrid}/></div>
+            <Switch>
+                <Route path="/addstudent">
+                    <div className="container">
+                        <AddStudent />
+                    </div>
+                </Route>
+                <Route path="/">
+                    <div className="container">
+                        <ListOfStudents showListGrid={this.state.showListGrid} handler_showListGrid={this.handler_showListGrid} />
+                    </div>
+                </Route>
+            </Switch>
+        </Router>
       </>
     )
   }

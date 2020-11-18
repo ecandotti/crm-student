@@ -2,6 +2,8 @@
 import { FiUserPlus } from 'react-icons/fi'
 import { ImList2 } from 'react-icons/im'
 import { BsFillGrid3X3GapFill } from 'react-icons/bs'
+import { AiFillHome } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 
 const Header = (props) => {
@@ -20,9 +22,16 @@ const Header = (props) => {
                     Nombre d'étudiant : {nbStudent} trouvés.
                 </div>
                 <div className="col s6 right-align">
-                    <button className="btn green waves-effect waves-light">
-                        <FiUserPlus />
-                    </button>&#160;
+                    <Link to="/addstudent">
+                        <button className="btn green waves-effect waves-light">
+                            <FiUserPlus />
+                        </button>&#160;
+                    </Link>
+                    <Link to="/">
+                        <button className="btn blue waves-effect waves-light">
+                            <AiFillHome />
+                        </button>&#160;
+                    </Link>
                     <button onClick={props.handler_showListGrid} className="btn brown waves-effect waves-light">
                         { showListGrid  ? <BsFillGrid3X3GapFill /> : <ImList2 /> }
                     </button>
