@@ -1,5 +1,7 @@
 # Student Manager 
-## Projet # Branch 'Dev'->'Enzo'-----
+## Projet # Branch 'Dev'->'Enzo'  
+Pour push d'une branch a une autre :  
+- git push origin branch1:branch2
 Création d'une application permettant un CRD d'étudiant
 
 ## Stack
