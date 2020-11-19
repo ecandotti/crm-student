@@ -23,7 +23,7 @@ const NavBar = (props) => {
             <nav>
                 <div className="nav-wrapper blue">
                     <div className="brand-logo left"> 
-                        <Link to="/"><img alt="Logo Student Manaager" src={logoSM}/></Link>
+                        <Link to="/students"><img alt="Logo Student Manaager" src={logoSM}/></Link>
                     </div>
                     <ul className="right hide-on-med-and-down">
                         <li><UserConnexion showSubMenu={showSubMenu} loginhandler={loginhandler} handlerNav={handlerNav} user={user} /></li>
