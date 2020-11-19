@@ -5,15 +5,6 @@ const UserConnexion = (props) => {
     let user = props.user.name
     let lastName = props.user.lastName
     let image = props.user.image.imageProfile
-    
-    //let menu
-    //const testlog = () => {
-    //    console.log("test  fonctionnel...")
-    //}
-
-    // if(showMenu){
-    //     menu=
-    // }
 
     console.log(image)
 
