@@ -1,11 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import AddStudent from './AddStudent'
 import NavBar from './NavBar'
-import Header from './Header'
 import WhichView from './WhichView'
-import StudentCard from './StudentCard'
 import 'materialize-css'
+import Header from './Header'
 
 class App extends React.Component {
 
@@ -13,59 +10,75 @@ class App extends React.Component {
         super(props)
 
         this.state = {
+            whichView:'dashboard',
             headerTitle: 'Student Manager',
-            navMenu: false,
-            showSubMenu: false,
-            isLogged: true,
-            showListGrid: false,
+            idSelected: null,
+            isGrid: false,
             studentsArray: [
-                { firstName:'Enzo', lastName:'hell', speciality:"dev mobile", id:"0" },
-                { firstName:'Leo', lastName:'hell', speciality:"dev mobile", id:"1" },
-                { firstName:'Joe', lastName:'hell', speciality:"dev mobile", id:"2" },
-                { firstName:'Paul', lastName:'hell', speciality:"dev mobile", id:"3" },
-                { firstName:'Marie', lastName:'hell', speciality:"dev mobile", id:"4" },
-                { firstName:'Joe', lastName:'hell', speciality:"dev mobile", id:"5" },
-                { firstName:'Joe', lastName:'hell', speciality:"dev mobile", id:"6" }
+                { firstName:'Luffy', lastName:'Monkey D', speciality:"Gum Gum", id:"0" },
+                { firstName:'Zoro', lastName:'Roronoa', speciality:"3 Sabres", id:"1" },
+                { firstName:'Robin', lastName:'Nico', speciality:"Hana Hana", id:"2" },
+                { firstName:'Sanji', lastName:'Vinsmoke', speciality:"Jambe Noir", id:"3" },
+                { firstName:'Chopper', lastName:'Tony-Tony', speciality:"Hito Hito", id:"4" },
+                { firstName:'Flam', lastName:'Cutty', speciality:"Charpentier", id:"5" },
+                { firstName:'Usopp', lastName:'SinperKing', speciality:"Sniper", id:"6" }
             ]
         }
 
-        this.handler_showSubMenu = this.handler_showSubMenu.bind(this)
-        this.handler_login = this.handler_login.bind(this)
+        this.handleGrid = this.handleGrid.bind(this)
+        this.handleDashboard = this.handleDashboard.bind(this)
+        this.handleAddStudent = this.handleAddStudent.bind(this)
+        this.handleStudent = this.handleStudent.bind(this)
     }
 
-    handler_showListGrid = () => {
-        this.setState(state => ({ showListGrid: !state.showListGrid } ))
+    handleGrid(){
+        this.setState({
+            whichView: 'dashboard',
+            isGrid: !this.state.isGrid
+        })
     }
 
-    handler_showSubMenu = () => {
-        this.setState(state => ({ showSubMenu: !state.showSubMenu } ))
+    handleAddStudent(){
+        this.setState({
+            whichView: 'addstudent'
+        })
     }
 
-    handler_login = () => {
-        this.setState(state => ({ isLogged: !state.isLogged } ))
+    handleDashboard(){
+        this.setState({
+            whichView: 'dashboard'
+        })
+    }
+
+    handleStudent(idStudent){
+        this.setState({
+            whichView: 'student',
+            idSelected: idStudent
+        })
     }
     
-
     render(){
         return (
             <>
-                <Router>
-                    <NavBar showSubMenu={this.state.showSubMenu} handlerNav={this.handler_showSubMenu} handler_login={this.handler_login} />
-                    <div className="container">
-                        <Header headerTitle={ this.state.headerTitle } nbStudent={this.state.studentsArray.length} showListGrid={this.state.showListGrid} handler_showListGrid={this.handler_showListGrid}/>
-                        <Switch>
-                            <Route path={`/student/:studentId`}>
-                                <StudentCard data={this.state.studentsArray} />
-                            </Route>
-                            <Route path="/addstudent">
-                                <AddStudent />
-                            </Route>
-                            <Route path="/students">
-                                <WhichView showListGrid={this.state.showListGrid} data={this.state.studentsArray} />
-                            </Route>
-                        </Switch>
-                    </div>
-                </Router>
+                <NavBar {...this.props} handleDashboard={this.handleDashboard}/>
+                <div className="container">
+                    <Header 
+                        nbStudent={this.state.studentsArray.length}
+                        whichView={this.state.whichView}
+                        isGrid={this.state.isGrid}
+                        handleGrid={this.handleGrid}
+                        handleAddStudent={this.handleAddStudent}
+                        handleDashboard={this.handleDashboard}
+                    />
+                    <WhichView
+                        data={this.state.studentsArray}
+                        isGrid={this.state.isGrid}
+                        whichView={this.state.whichView}
+                        idSelected={this.state.idSelected}
+                        handleStudent={this.handleStudent}
+                    />
+                </div>
+                
             </>
         )
     }
