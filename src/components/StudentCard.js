@@ -1,6 +1,5 @@
 import { MdModeEdit } from 'react-icons/md'
 import { HiTrash } from 'react-icons/hi'
-import { FaAddressCard } from 'react-icons/fa'
 
 const StudentCard = (props) => {
 
@@ -30,7 +29,10 @@ const StudentCard = (props) => {
                                 </p>
                             </div>
                             <div className="card-action">
-                                <button className="btn red waves-effect waves-light col s4"><HiTrash /></button> <button className="btn disabled col s4"><MdModeEdit /></button> <button className="btn disabled col s4"><FaAddressCard /></button> 
+                                <div className="row">
+                                    <button className="btn red waves-effect waves-light col s4 offset-s1"><HiTrash /></button>
+                                    <button className="btn disabled col offset-s1 s4"><MdModeEdit /></button>
+                                </div>
                             </div>
                         </div>
                     </div>

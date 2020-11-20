@@ -1,4 +1,4 @@
-import { MdModeEdit } from 'react-icons/md'
+// import { MdModeEdit } from 'react-icons/md'
 import { HiTrash } from 'react-icons/hi'
 import { FaAddressCard } from 'react-icons/fa'
 
@@ -21,9 +21,11 @@ const List = (props) => {
                 <td className="center">{ firstName }</td>
                 <td className="center">{ speciality }</td>
                 <td className="right-align">
-                    <button className="btn red waves-effect waves-light col s1"><HiTrash /></button> 
-                    <button className="btn disabled col offset-s1 s1"><MdModeEdit /></button> 
-                    <button onClick={handleSayId} className="btn purple col offset-s1 s3" name={id}><FaAddressCard /></button>
+                    <div className="row">
+                        <button className="btn red waves-effect waves-light col offset-l6 l2 offset-m5 m3"><HiTrash /></button> 
+                        {/* <button className="btn disabled col offset-s1 s1"><MdModeEdit /></button>  */}
+                        <button onClick={handleSayId} className="btn purple col l2 offset-l1 m3 offset-m1" name={id}><FaAddressCard /></button>
+                    </div>
                 </td>
             </tr>
         </>

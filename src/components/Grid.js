@@ -1,4 +1,4 @@
-import { MdModeEdit } from 'react-icons/md'
+// import { MdModeEdit } from 'react-icons/md'
 import { HiTrash } from 'react-icons/hi'
 import { FaAddressCard } from 'react-icons/fa'
 
@@ -31,9 +31,12 @@ const Grid = (props) => {
                             </p>
                         </div>
                         <div className="card-action">
-                            <button className="btn red waves-effect waves-light col s3"><HiTrash /></button> 
-                            <button className="btn disabled col offset-s1 s3"><MdModeEdit /></button>
-                            <button onClick={handleSayId} className="btn purple col offset-s1 s3" name={id}><FaAddressCard /></button>
+                            <div className="row center-align">
+                                <button className="btn red waves-effect waves-light col s4 offset-s1"><HiTrash /></button> 
+                                {/* <button className="btn disabled col offset-s1 s3"><MdModeEdit /></button> */}
+                                <button onClick={handleSayId} className="btn purple col offset-s1 s4" name={id}><FaAddressCard /></button>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
