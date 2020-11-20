@@ -1,20 +1,19 @@
 import { MdModeEdit } from 'react-icons/md'
 import { HiTrash } from 'react-icons/hi'
 import { FaAddressCard } from 'react-icons/fa'
-import { useParams } from 'react-router-dom'
 
-const StudentCard = ({ data }) => {
+const StudentCard = (props) => {
 
-        const { studentId } = useParams()
-        const firstName = data[studentId].firstName
-        const lastName = data[studentId].lastName
-        const speciality = data[studentId].speciality
-        const id = data[studentId].id
+        const currentId = props.idSelected
+        const firstName = props.data[currentId].firstName
+        const lastName = props.data[currentId].lastName
+        const speciality = props.data[currentId].speciality
+        const id = props.data[currentId].id
         const isAdmin = false
         
         let studentData
 
-        if (studentId) {
+        if (currentId != null) {
             studentData = (
                 <div className="col s12 m12 l12">
                     <div className="card horizontal">
@@ -43,7 +42,8 @@ const StudentCard = ({ data }) => {
         
         return (
             <div>
-                <div>{studentData}</div>
+                <div>{ studentData }</div>
+                <div>{ console.log(props) }</div>
             </div>
         )
 }

@@ -1,26 +1,18 @@
-const UserConnexion = (props) => {
-    
-    let showMenu = props.showSubMenu
-    let loginhandler = props.loginhandler
-    let user = props.user.name
-    let lastName = props.user.lastName
-    let image = props.user.image.imageProfile
+import auth from '../auth'
 
-    console.log(image)
+const UserConnexion = (props) => {
 
     return(
-        <div className="center" >
-            <p> {user} {lastName} </p>
-    
-            <p className={showMenu ? 'Buttonlist returnThis' : 'Buttonlist' } onClick={props.handlerNav}>▾</p>
-            {showMenu ?
-                <ul>
-                <li>Mes informations</li> 
-                <li><button onClick={loginhandler}>Me déconnecter</button></li> 
-            </ul>: 
-                ""
-            }
-        </div>
+        <>
+            <span className="left">Connecté en tant que <b>{props.userInfo.name}</b></span>&#160;&#160;
+            <button className="btn red" onClick={ () => {
+                        auth.logout(() => {
+                            props.history.push('/')
+                        })
+                    }
+                }
+            >Se Déconnecter</button>&#160;
+        </>
     )
 }
 

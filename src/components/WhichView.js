@@ -1,38 +1,58 @@
 import Grid from './Grid'
 import List from './List'
+import AddStudent from './AddStudent'
+import StudentCard from './StudentCard'
 
-const Card = (props) => {
+const whichView = (props) => {
 
-    const moded = props.showListGrid
-    let GridView = props.data.map((student) => ( <Grid student={student} key={student.id}/> ))
-    let ListView = props.data.map((student) => ( <List student={student} key={student.id}/> ))
+    const moded = props.isGrid
+    let whichView = props.whichView
 
-    if( moded ) {
-        return (
-            <div>
-                <table className="striped">  
-                    <thead className="blue">
-                        <tr className="white-text">
-                            <th>ID</th>
-                            <th className="center">Nom</th>
-                            <th className="center">Prénom</th>
-                            <th className="center">Spécialité</th>
-                            <th className="right-align">Options</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { ListView }
-                    </tbody>
-                </table>
-            </div>
-        )
-    } else {
-        return (
-            <div className="row">
-                { GridView }
-            </div>   
-        )
+    console.log(whichView)
+
+    const handleStudentCard = (student) => {
+        props.handleStudent(student)
+    }
+
+    switch(whichView){
+        case 'addstudent':
+            return(
+                <AddStudent />
+            )
+        case 'student':
+            return(
+                <StudentCard idSelected={props.idSelected} data={props.data}/>
+            )
+        case 'dashboard':
+            if( moded ) {
+                return (
+                    <div>
+                        <table className="striped">  
+                            <thead className="blue">
+                                <tr className="white-text">
+                                    <th>ID</th>
+                                    <th className="center">Nom</th>
+                                    <th className="center">Prénom</th>
+                                    <th className="center">Spécialité</th>
+                                    <th className="right-align">Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                { props.data.map((student) => ( <List student={student} key={student.id} handleStudent={handleStudentCard}/> )) }
+                            </tbody>
+                        </table>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className="row">
+                        { props.data.map((student) => ( <Grid student={student} key={student.id} handleStudent={handleStudentCard}/> )) }
+                    </div>   
+                )
+            }
+        default:
+            return('hein ?')
     }
 }
 
-export default Card
+export default whichView

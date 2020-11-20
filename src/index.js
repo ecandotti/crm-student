@@ -1,16 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './components/App'
-import reportWebVitals from './reportWebVitals'
+import { Login } from './components/Login'
+import { ProtectedRoute } from './protectedRoute'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import 'react-materialize'
+
+function Manage(){
+  return (
+    <div>
+      <Switch>
+        <Route exact path="/" component={ Login } />
+        <ProtectedRoute exact path="/dashboard" component={ App } />
+        <Route path="*" component={() => 'ERREUR 404' } />
+      </Switch>
+    </div>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Manage />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals()
+)
