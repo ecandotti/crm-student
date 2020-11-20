@@ -14,21 +14,43 @@ class App extends React.Component {
             headerTitle: 'Student Manager',
             idSelected: null,
             isGrid: false,
-            studentsArray: [
-                { firstName:'Luffy', lastName:'Monkey D', speciality:"Gum Gum", id:"0", isAdmin:true },
-                { firstName:'Zoro', lastName:'Roronoa', speciality:"3 Sabres", id:"1", isAdmin:true },
-                { firstName:'Robin', lastName:'Nico', speciality:"Hana Hana", id:"2", isAdmin:false },
-                { firstName:'Sanji', lastName:'Vinsmoke', speciality:"Jambe Noir", id:"3", isAdmin:false },
-                { firstName:'Chopper', lastName:'Tony-Tony', speciality:"Hito Hito", id:"4", isAdmin:false },
-                { firstName:'Flam', lastName:'Cutty', speciality:"Charpentier", id:"5", isAdmin:false },
-                { firstName:'Usopp', lastName:'SinperKing', speciality:"Sniper", id:"6", isAdmin:false }
-            ]
+            studentsArray: []
         }
 
         this.handleGrid = this.handleGrid.bind(this)
         this.handleDashboard = this.handleDashboard.bind(this)
         this.handleAddStudent = this.handleAddStudent.bind(this)
         this.handleStudent = this.handleStudent.bind(this)
+        this.deleteStudent = this.deleteStudent.bind(this)
+    }
+
+    updateData(){
+        
+        //Simulation req
+        let reqApi = [
+            { firstName:'Luffy', lastName:'Monkey D', speciality:"Gum Gum", id:"0", isAdmin:true },
+            { firstName:'Zoro', lastName:'Roronoa', speciality:"3 Sabres", id:"1", isAdmin:true },
+            { firstName:'Robin', lastName:'Nico', speciality:"Hana Hana", id:"2", isAdmin:false },
+            { firstName:'Sanji', lastName:'Vinsmoke', speciality:"Jambe Noir", id:"3", isAdmin:false },
+            { firstName:'Chopper', lastName:'Tony-Tony', speciality:"Hito Hito", id:"4", isAdmin:false },
+            { firstName:'Flam', lastName:'Cutty', speciality:"Charpentier", id:"5", isAdmin:false },
+            { firstName:'Usopp', lastName:'SinperKing', speciality:"Sniper", id:"6", isAdmin:false }
+        ]
+        
+        let temp_array = []
+        
+        temp_array.push.apply(temp_array, reqApi)
+        this.setState({
+            studentsArray: temp_array
+        })
+    }
+
+    deleteStudent() {
+        window.alert("Contact supprimé");
+      }
+
+    componentDidMount(){
+        this.updateData()
     }
 
     handleGrid(){
@@ -80,6 +102,7 @@ class App extends React.Component {
                         whichView={this.state.whichView}
                         idSelected={this.state.idSelected}
                         handleStudent={this.handleStudent}
+                        deleteStudent={this.deleteStudent}
                     />
                 </div>
                 
