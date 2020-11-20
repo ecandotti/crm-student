@@ -8,11 +8,7 @@ const whichView = (props) => {
     const moded = props.isGrid
     let whichView = props.whichView
 
-    console.log(whichView)
-
-    const handleStudentCard = (student) => {
-        props.handleStudent(student)
-    }
+    // console.log(whichView)
 
     switch(whichView){
         case 'addstudent':
@@ -38,7 +34,7 @@ const whichView = (props) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                { props.data.map((student) => ( <List student={student} key={student.id} handleStudent={handleStudentCard}/> )) }
+                                { props.data.map((student) => ( <List student={student} key={student.id} handleStudent={props.handleStudent}/> )) }
                             </tbody>
                         </table>
                     </div>
@@ -46,7 +42,7 @@ const whichView = (props) => {
             } else {
                 return (
                     <div className="row">
-                        { props.data.map((student) => ( <Grid student={student} key={student.id} handleStudent={handleStudentCard}/> )) }
+                        { props.data.map((student) => ( <Grid student={student} key={student.id} handleStudent={props.handleStudent}/> )) }
                     </div>   
                 )
             }
