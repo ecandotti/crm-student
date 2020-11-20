@@ -1,13 +1,12 @@
-import { ImList2 } from 'react-icons/im'
-import { BsFillGrid3X3GapFill } from 'react-icons/bs'
-import { FaUserGraduate, FaUserPlus } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { FaUserPlus, FaListUl } from 'react-icons/fa'
+import { AiFillHome } from 'react-icons/ai'
+import { BsGrid3X3Gap } from 'react-icons/bs'
 
 const Header = (props) => {
     
-    let headerTitle = props.headerTitle
+    let headerTitle = 'Student Manager'
     let nbStudent = props.nbStudent
-    let showListGrid = props.showListGrid
+    let isGrid = props.isGrid
 
     return(
         <>
@@ -19,18 +18,14 @@ const Header = (props) => {
                     Nombre d'étudiant : { nbStudent } trouvés.
                 </div>
                 <div className="col s6 right-align">
-                    <Link to="/addstudent">
-                        <button className="btn green waves-effect waves-light">
-                            <FaUserPlus />
-                        </button>&#160;
-                    </Link>
-                    <Link to="/students">
-                        <button className="btn blue waves-effect waves-light">
-                            <FaUserGraduate />
-                        </button>&#160;
-                    </Link>
-                    <button onClick={ props.handler_showListGrid } className="btn brown waves-effect waves-light">
-                        { showListGrid  ? <BsFillGrid3X3GapFill /> : <ImList2 /> }
+                    <button onClick={props.handleAddStudent} className="btn green waves-effect waves-light">
+                        <FaUserPlus />
+                    </button>&#160;
+                    <button onClick={props.handleDashboard} className="btn orange waves-effect waves-light">
+                        <AiFillHome />
+                    </button>&#160;
+                    <button onClick={props.handleGrid} className="btn brown waves-effect waves-light">
+                        {isGrid ? <BsGrid3X3Gap /> : <FaListUl />}
                     </button>&#160;
                 </div>
             </div>
