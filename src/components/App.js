@@ -15,13 +15,13 @@ class App extends React.Component {
             idSelected: null,
             isGrid: false,
             studentsArray: [
-                { firstName:'Luffy', lastName:'Monkey D', speciality:"Gum Gum", id:"0" },
-                { firstName:'Zoro', lastName:'Roronoa', speciality:"3 Sabres", id:"1" },
-                { firstName:'Robin', lastName:'Nico', speciality:"Hana Hana", id:"2" },
-                { firstName:'Sanji', lastName:'Vinsmoke', speciality:"Jambe Noir", id:"3" },
-                { firstName:'Chopper', lastName:'Tony-Tony', speciality:"Hito Hito", id:"4" },
-                { firstName:'Flam', lastName:'Cutty', speciality:"Charpentier", id:"5" },
-                { firstName:'Usopp', lastName:'SinperKing', speciality:"Sniper", id:"6" }
+                { firstName:'Luffy', lastName:'Monkey D', speciality:"Gum Gum", id:"0", isAdmin:true },
+                { firstName:'Zoro', lastName:'Roronoa', speciality:"3 Sabres", id:"1", isAdmin:true },
+                { firstName:'Robin', lastName:'Nico', speciality:"Hana Hana", id:"2", isAdmin:false },
+                { firstName:'Sanji', lastName:'Vinsmoke', speciality:"Jambe Noir", id:"3", isAdmin:false },
+                { firstName:'Chopper', lastName:'Tony-Tony', speciality:"Hito Hito", id:"4", isAdmin:false },
+                { firstName:'Flam', lastName:'Cutty', speciality:"Charpentier", id:"5", isAdmin:false },
+                { firstName:'Usopp', lastName:'SinperKing', speciality:"Sniper", id:"6", isAdmin:false }
             ]
         }
 
