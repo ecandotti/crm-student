@@ -47,7 +47,7 @@ const StudentCard = (props) => {
         )
     } else { 
         return (
-            <h4 className="red warning center white-text">Désolé, aucun étudiant trouvé </h4>
+            <h4 className="red warning center white-text">Une erreur est survenu, veuillez réessayer </h4>
         )
     }  
 }
