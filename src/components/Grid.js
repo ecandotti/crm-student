@@ -1,7 +1,6 @@
 import { MdModeEdit } from 'react-icons/md'
 import { HiTrash } from 'react-icons/hi'
 import { FaAddressCard } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 
 const Grid = (props) => {
 
@@ -10,6 +9,10 @@ const Grid = (props) => {
     const speciality = props.student.speciality
     const id = props.student.id
     const isAdmin = false
+
+    const handleSayId = (event) => {
+        props.handleStudent(event.target.name)
+    }
 
     return (
         <>
@@ -29,10 +32,8 @@ const Grid = (props) => {
                         </div>
                         <div className="card-action">
                             <button className="btn red waves-effect waves-light col s3"><HiTrash /></button> 
-                            <button className="btn disabled col offset-s1 s3"><MdModeEdit /></button> 
-                            <Link to={`/student/${id}`}>
-                                <button className="btn purple col offset-s1 s3"><FaAddressCard /></button>
-                            </Link>
+                            <button className="btn disabled col offset-s1 s3"><MdModeEdit /></button>
+                            <button onClick={handleSayId} className="btn purple col offset-s1 s3" name={id}><FaAddressCard /></button>
                         </div>
                     </div>
                 </div>
