@@ -1,14 +1,18 @@
 # Student Manager 
-## Projet # Branch 'Dev'->'Enzo'  
-Pour push d'une branch a une autre :  
-- git push origin branch1:branch2
+## Projet # Branch 'Master' 
+
 Création d'une application permettant un CRD d'étudiant
+
+Tâches restantes:
+- AddStudent Form
+- Connexion API
 
 ## Stack
 - Front : 
     - node - version v12.19.0
     - React JS  -  version : 17.0.1
     - MaterializeCSS  -  version : 1.0.0-rc.2
+    - Route-React-DOM
 - Back  :
     - Java
 
