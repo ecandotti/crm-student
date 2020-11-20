@@ -51,10 +51,14 @@ class App extends React.Component {
     }
 
     handleStudent(idStudent){
-        this.setState({
-            whichView: 'student',
-            idSelected: idStudent
-        })
+        if(idStudent){
+            this.setState({
+                idSelected: idStudent,
+                whichView: 'student'
+            })
+        } else {
+            window.alert('Une erreur est survénu, veuillez réessayer')
+        }
     }
     
     render(){
