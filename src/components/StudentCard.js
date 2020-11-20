@@ -31,7 +31,7 @@ const StudentCard = (props) => {
                         </div>
                         <div className="card-action">
                         <div className="row">
-                                <button className="btn red waves-effect waves-light col s4 offset-s1"><HiTrash /></button>
+                                <button onClick={props.deleteStudent} className="btn red waves-effect waves-light col s4 offset-s1"><HiTrash /></button>
                                 <button className="btn disabled col offset-s1 s4"><MdModeEdit /></button>
                             </div>
                         </div>

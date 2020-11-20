@@ -17,7 +17,7 @@ const whichView = (props) => {
             )
         case 'student':
             return(
-                <StudentCard idSelected={props.idSelected} data={props.data}/>
+                <StudentCard idSelected={props.idSelected} data={props.data} deleteStudent={props.deleteStudent}/>
             )
         case 'dashboard':
             if( moded ) {
@@ -34,7 +34,7 @@ const whichView = (props) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                { props.data.map((student) => ( <List student={student} key={student.id} handleStudent={props.handleStudent}/> )) }
+                                { props.data.map((student) => ( <List student={student} key={student.id} handleStudent={props.handleStudent} deleteStudent={props.deleteStudent}/> )) }
                             </tbody>
                         </table>
                     </div>
@@ -42,7 +42,7 @@ const whichView = (props) => {
             } else {
                 return (
                     <div className="row">
-                        { props.data.map((student) => ( <Grid student={student} key={student.id} handleStudent={props.handleStudent}/> )) }
+                        { props.data.map((student) => ( <Grid student={student} key={student.id} handleStudent={props.handleStudent} deleteStudent={props.deleteStudent}/> )) }
                     </div>   
                 )
             }

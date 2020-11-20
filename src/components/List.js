@@ -22,7 +22,7 @@ const List = (props) => {
                 <td className="center">{ Speciality }</td>
                 <td className="right-align">
                     <div className="row">
-                        <button className="btn red waves-effect waves-light col offset-l6 l2 offset-m5 m3"><HiTrash /></button> 
+                        <button onClick={props.deleteStudent} className="btn red waves-effect waves-light col offset-l6 l2 offset-m5 m3"><HiTrash /></button> 
                         {/* <button className="btn disabled col offset-s1 s1"><MdModeEdit /></button>  */}
                         <button onClick={handleSayId} className="btn purple col l2 offset-l1 m3 offset-m1" name={ Id }><FaAddressCard /></button>
                     </div>
