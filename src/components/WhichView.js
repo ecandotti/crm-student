@@ -10,20 +10,21 @@ const whichView = (props) => {
 
     // console.log(whichView)
 
-    switch(whichView){
+    switch (whichView) {
         case 'addstudent':
-            return(
-                <AddStudent />
+            return (
+                //Tony
+                <AddStudent data={props.data} addStudent={props.addStudent} />
             )
         case 'student':
-            return(
-                <StudentCard idSelected={props.idSelected} data={props.data} deleteStudent={props.deleteStudent}/>
+            return (
+                <StudentCard idSelected={props.idSelected} data={props.data} deleteStudent={props.deleteStudent} />
             )
         case 'dashboard':
-            if( moded ) {
+            if (moded) {
                 return (
                     <div>
-                        <table className="striped">  
+                        <table className="striped">
                             <thead className="blue">
                                 <tr className="white-text">
                                     <th>ID</th>
@@ -34,7 +35,7 @@ const whichView = (props) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                { props.data.map((student) => ( <List student={student} key={student.id} handleStudent={props.handleStudent} deleteStudent={props.deleteStudent}/> )) }
+                                {props.data.map((student) => (<List student={student} key={student.id} handleStudent={props.handleStudent} deleteStudent={props.deleteStudent} />))}
                             </tbody>
                         </table>
                     </div>
@@ -42,12 +43,12 @@ const whichView = (props) => {
             } else {
                 return (
                     <div className="row">
-                        { props.data.map((student) => ( <Grid student={student} key={student.id} handleStudent={props.handleStudent} deleteStudent={props.deleteStudent}/> )) }
-                    </div>   
+                        { props.data.map((student) => (<Grid student={student} key={student.id} handleStudent={props.handleStudent} deleteStudent={props.deleteStudent} />))}
+                    </div>
                 )
             }
         default:
-            return('hein ?')
+            return ('hein ?')
     }
 }
 

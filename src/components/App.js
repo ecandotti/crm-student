@@ -10,7 +10,7 @@ class App extends React.Component {
         super(props)
 
         this.state = {
-            whichView:'dashboard',
+            whichView: 'dashboard',
             headerTitle: 'Student Manager',
             idSelected: null,
             isGrid: false,
@@ -24,56 +24,72 @@ class App extends React.Component {
         this.deleteStudent = this.deleteStudent.bind(this)
     }
 
-    updateData(){
-        
+    updateData() {
+
         //Simulation req
         let reqApi = [
-            { firstName:'Luffy', lastName:'Monkey D', speciality:"Gum Gum", id:"0", isAdmin:true },
-            { firstName:'Zoro', lastName:'Roronoa', speciality:"3 Sabres", id:"1", isAdmin:true },
-            { firstName:'Robin', lastName:'Nico', speciality:"Hana Hana", id:"2", isAdmin:false },
-            { firstName:'Sanji', lastName:'Vinsmoke', speciality:"Jambe Noir", id:"3", isAdmin:false },
-            { firstName:'Chopper', lastName:'Tony-Tony', speciality:"Hito Hito", id:"4", isAdmin:false },
-            { firstName:'Flam', lastName:'Cutty', speciality:"Charpentier", id:"5", isAdmin:false },
-            { firstName:'Usopp', lastName:'SinperKing', speciality:"Sniper", id:"6", isAdmin:false }
+            { firstName: 'Luffy', lastName: 'Monkey D', speciality: "Gum Gum", id: "0", isAdmin: true },
+            { firstName: 'Zoro', lastName: 'Roronoa', speciality: "3 Sabres", id: "1", isAdmin: true },
+            { firstName: 'Robin', lastName: 'Nico', speciality: "Hana Hana", id: "2", isAdmin: false },
+            { firstName: 'Sanji', lastName: 'Vinsmoke', speciality: "Jambe Noir", id: "3", isAdmin: false },
+            { firstName: 'Chopper', lastName: 'Tony-Tony', speciality: "Hito Hito", id: "4", isAdmin: false },
+            { firstName: 'Flam', lastName: 'Cutty', speciality: "Charpentier", id: "5", isAdmin: false },
+            { firstName: 'Usopp', lastName: 'SinperKing', speciality: "Sniper", id: "6", isAdmin: false }
         ]
-        
+
         let temp_array = []
-        
+
         temp_array.push.apply(temp_array, reqApi)
         this.setState({
             studentsArray: temp_array
         })
     }
 
-    deleteStudent() {
-        window.alert("Contact supprimé");
-      }
+    addStudent = student => {
+        // student: { firstName: '', lastName: '', speciality: "", id: "", isAdmin: false }
 
-    componentDidMount(){
+        // List + added student
+        const students = this.state.studentsArray.slice();
+        students.push(student);
+
+        console.log(students);
+
+        // Set the new list to current array of students
+        // Need changes to parse the new data to the database
+        //this.setState({ studentsArray: students });
+
+        window.alert("Etudiant ajouté!");
+    }
+
+    deleteStudent() {
+        window.alert("Etudiant supprimé");
+    }
+
+    componentDidMount() {
         this.updateData()
     }
 
-    handleGrid(){
+    handleGrid() {
         this.setState({
             whichView: 'dashboard',
             isGrid: !this.state.isGrid
         })
     }
 
-    handleAddStudent(){
+    handleAddStudent() {
         this.setState({
             whichView: 'addstudent'
         })
     }
 
-    handleDashboard(){
+    handleDashboard() {
         this.setState({
             whichView: 'dashboard'
         })
     }
 
-    handleStudent(idStudent){
-        if(idStudent){
+    handleStudent(idStudent) {
+        if (idStudent) {
             this.setState({
                 idSelected: idStudent,
                 whichView: 'student'
@@ -82,13 +98,13 @@ class App extends React.Component {
             window.alert('Une erreur est survénu, veuillez réessayer')
         }
     }
-    
-    render(){
+
+    render() {
         return (
             <>
-                <NavBar {...this.props} handleDashboard={this.handleDashboard}/>
+                <NavBar {...this.props} handleDashboard={this.handleDashboard} />
                 <div className="container">
-                    <Header 
+                    <Header
                         nbStudent={this.state.studentsArray.length}
                         whichView={this.state.whichView}
                         isGrid={this.state.isGrid}
@@ -103,9 +119,10 @@ class App extends React.Component {
                         idSelected={this.state.idSelected}
                         handleStudent={this.handleStudent}
                         deleteStudent={this.deleteStudent}
+                        addStudent={this.addStudent}
                     />
                 </div>
-                
+
             </>
         )
     }
