@@ -3,12 +3,18 @@ import { HiTrash } from 'react-icons/hi'
 
 const StudentCard = (props) => {
 
+    const deleteStudent = () => {
+        fetch(`https://cors-anywhere.herokuapp.com/http://176.189.0.162:9090/eleves/delete/${props.idSelected}`)
+            .then(window.alert("Etudiant supprimé"))
+            .then(props.handleDashboard())
+            .catch(err => console.log(err))
+    }
+
     if(props.idSelected) { 
-        console.log(props.idSelected)
         const currentId = props.idSelected
-        const firstName = props.data[currentId].firstName
-        const lastName = props.data[currentId].lastName
-        const Speciality = props.data[currentId].speciality
+        const name = props.data[currentId].nom
+        const mail = props.data[currentId].mail
+        const role = props.data[currentId].role
         const Id = props.data[currentId].id
         const isAdmin = props.data[currentId].isAdmin
             
@@ -22,16 +28,17 @@ const StudentCard = (props) => {
                     </div>
                     <div className="card-stacked">
                         <div className="card-content">
-                            <h4 className="header">{ firstName } { lastName }</h4>
+                            <h4 className="header">{ name }</h4>
                             <p>
                                 Admin : {isAdmin ? 'OUI' : 'NON'}<br/>
-                                Specialité : { Speciality }<br/>
+                                Mail : { mail }<br/> 
+                                Rôle : { role }<br/>
                                 ID : { Id }
                             </p>
                         </div>
                         <div className="card-action">
                         <div className="row">
-                                <button onClick={props.deleteStudent} className="btn red waves-effect waves-light col s4 offset-s1"><HiTrash /></button>
+                                <button onClick={deleteStudent} className="btn red waves-effect waves-light col s4 offset-s1"><HiTrash /></button>
                                 <button className="btn disabled col offset-s1 s4"><MdModeEdit /></button>
                             </div>
                         </div>
