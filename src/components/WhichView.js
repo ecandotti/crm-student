@@ -8,17 +8,14 @@ const whichView = (props) => {
     const moded = props.isGrid
     let whichView = props.whichView
 
-    // console.log(whichView)
-
     switch (whichView) {
         case 'addstudent':
             return (
-                //Tony
-                <AddStudent data={props.data} addStudent={props.addStudent} />
+                <AddStudent data={props.data} addStudent={props.addStudent} updateData={props.updateData} handleDashboard={props.handleDashboard}/>
             )
         case 'student':
             return (
-                <StudentCard idSelected={props.idSelected} data={props.data} deleteStudent={props.deleteStudent} />
+                <StudentCard data={props.data} handleDashboard={props.handleDashboard} idSelected={props.idSelected}/>
             )
         case 'dashboard':
             if (moded) {
@@ -28,14 +25,14 @@ const whichView = (props) => {
                             <thead className="blue">
                                 <tr className="white-text">
                                     <th>ID</th>
-                                    <th className="center">Nom</th>
-                                    <th className="center">Prénom</th>
-                                    <th className="center">Spécialité</th>
+                                    <th className="center">Nom Prénom</th>
+                                    <th className="center">Mail</th>
+                                    <th className="center">Rôle</th>
                                     <th className="right-align">Options</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {props.data.map((student) => (<List student={student} key={student.id} handleStudent={props.handleStudent} deleteStudent={props.deleteStudent} />))}
+                                {props.data.map((student) => (<List student={student} key={student.id} handleStudent={props.handleStudent} updateData={props.updateData}/>))}
                             </tbody>
                         </table>
                     </div>
@@ -43,7 +40,7 @@ const whichView = (props) => {
             } else {
                 return (
                     <div className="row">
-                        { props.data.map((student) => (<Grid student={student} key={student.id} handleStudent={props.handleStudent} deleteStudent={props.deleteStudent} />))}
+                        { props.data.map((student) => (<Grid student={student} key={student.id} handleStudent={props.handleStudent} updateData={props.updateData}/>))}
                     </div>
                 )
             }

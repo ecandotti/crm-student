@@ -4,14 +4,21 @@ import { FaAddressCard } from 'react-icons/fa'
 
 const Grid = (props) => {
 
-    const firstName = props.student.firstName
-    const lastName = props.student.lastName
-    const Speciality = props.student.speciality
-    const Id = props.student.id
+    const name = props.student.nom
+    const mail = props.student.mail
+    const role = props.student.role
+    const id = props.student.id
     const isAdmin = props.student.isAdmin
 
     const handleSayId = (event) => {
         props.handleStudent(event.target.name)
+    }
+
+    const deleteStudent = () => {
+        fetch(`https://cors-anywhere.herokuapp.com/http://176.189.0.162:9090/eleves/delete/${id}`)
+            .then(window.alert("Etudiant supprimé"))
+            .then(props.updateData())
+            .catch(err => console.log(err))
     }
 
     return (
@@ -23,18 +30,19 @@ const Grid = (props) => {
                     </div>
                     <div className="card-stacked">
                         <div className="card-content">
-                            <h4 className="header">{ firstName }  { lastName }</h4>
+                            <h4 className="header">{ name }</h4>
                             <p>
                                 Admin : { isAdmin ? 'OUI' : 'NON' }<br/>
-                                Specialité : { Speciality } <br/>
-                                ID : { Id }
+                                Mail :  { mail }<br/>
+                                Rôle : { role } <br/>
+                                ID : { id }
                             </p>
                         </div>
                         <div className="card-action">
                             <div className="row center-align">
-                                <button onClick={props.deleteStudent} className="btn red waves-effect waves-light col s4 offset-s1"><HiTrash /></button> 
+                                <button onClick={deleteStudent} className="btn red waves-effect waves-light col s4 offset-s1"><HiTrash /></button> 
                                 {/* <button className="btn disabled col offset-s1 s3"><MdModeEdit /></button> */}
-                                <button onClick={handleSayId} className="btn purple col offset-s1 s4" name={ Id }><FaAddressCard /></button>
+                                <button onClick={handleSayId} className="btn purple col offset-s1 s4" name={ id }><FaAddressCard /></button>
                             </div>
                             
                         </div>
