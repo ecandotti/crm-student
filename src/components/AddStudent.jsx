@@ -1,9 +1,11 @@
 import React from 'react'
 
+import { POST_CREATE_ID } from '../config.json'
+
 class AddStudent extends React.Component {
 
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
             nom: '',
@@ -29,13 +31,13 @@ class AddStudent extends React.Component {
 
         const student = { 'nom': name, 'mail': mail, 'password': password,'role': role }
 
-        fetch('https://cors-anywhere.herokuapp.com/http://176.189.0.162:9090/eleves/create', {
+        fetch(POST_CREATE_ID, {
             method: 'POST',
             body: JSON.stringify(student),
             headers: {
                 'Content-Type': 'application/json'
             }})
-        .then(res => console.log("done"))
+        .then(console.log("done"))
         .then(this.setState({
                     name: '',
                     mail: '',
@@ -43,15 +45,13 @@ class AddStudent extends React.Component {
                     password: ''
             }))
         .catch(err => console.log(err))
-
-        this.props.updateData()
         window.alert("Etudiant ajouté")
-        this.props.handleDashboard()
+        window.location.replace('/')
     }
 
     render() {
         return (
-            <div className="row">
+            <div className="container row">
                 <form className="col s12" onSubmit={this.handleSubmit}>
                     <div className="row">
                         <div className="input-field col s6">
