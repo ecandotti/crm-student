@@ -1,27 +1,46 @@
+import React, { useState } from 'react'
+
+import { GET_FIND_ID, GET_DELETE_ID } from '../config.json'
+
 import { MdModeEdit } from 'react-icons/md'
 import { HiTrash } from 'react-icons/hi'
 
-const StudentCard = (props) => {
+const StudentCard = () => {
+
+    // Recup ID in URL (string)
+    const idURL = window.location.pathname.split('/')[2]
+
+    const [id, setId] = useState()
+    const [name, setName] = useState()
+    const [mail, setMail] = useState()
+    const [role, setRole] = useState()
+    const [isAdmin] = useState(false)
+    
+    let contactReq = []
+
+    fetch(GET_FIND_ID + idURL)
+        .then(response => response.json())
+        .then(req => {contactReq.push(req)})
+        .then(() => {
+            contactReq.forEach(element => {
+                setId(element.id)
+                setName(element.name)
+                setMail(element.mail)
+                setRole(element.role)
+            })
+        })
+        .catch(err => console.log(err))
 
     const deleteStudent = () => {
-        fetch(`https://cors-anywhere.herokuapp.com/http://176.189.0.162:9090/eleves/delete/${props.idSelected}`)
+        fetch(GET_DELETE_ID + id )
             .then(window.alert("Etudiant supprimé"))
-            .then(props.handleDashboard())
+            .then(window.location.replace('/'))
             .catch(err => console.log(err))
     }
 
-    if(props.idSelected) { 
-        const currentId = props.idSelected
-        const name = props.data[currentId].nom
-        const mail = props.data[currentId].mail
-        const role = props.data[currentId].role
-        const Id = props.data[currentId].id
-        const isAdmin = props.data[currentId].isAdmin
-            
-        let studentData
-
-        studentData = (
-            <div className="col s12 m12 l12">
+    if(id !== 0) {
+        return(
+            <div className="container col s12 m12 l12">
                 <div className="card horizontal">
                     <div className="card-image center-align valign-wrapper">
                         <img src="https://icons-for-free.com/iconfiles/png/512/human+person+user+icon-1320196276306824343.png" alt=""/>
@@ -33,7 +52,7 @@ const StudentCard = (props) => {
                                 Admin : {isAdmin ? 'OUI' : 'NON'}<br/>
                                 Mail : { mail }<br/> 
                                 Rôle : { role }<br/>
-                                ID : { Id }
+                                ID : { id }
                             </p>
                         </div>
                         <div className="card-action">
@@ -46,15 +65,9 @@ const StudentCard = (props) => {
                 </div>
             </div>
         )
-        return (
-            <div>
-                <div>{ studentData }</div>
-                <div>{ console.log(props) }</div>
-            </div>
-        )
     } else { 
         return (
-            <h4 className="red warning center white-text">Résultat introuvable 😬</h4>
+            <h4 className="container red warning center white-text">Résultat introuvable 😬</h4>
         )
     }  
 }
