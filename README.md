@@ -1,7 +1,9 @@
-# Student Manager 
-## Lancer le Front-End
+# Student Manager  
+## Front-End  
+****
+Création d'une image docker de l'app  
 
-npm i  
-npm start
-
-Bypass de CORS par https://cors-anywhere.herokuapp.com/<URL_BY_PASS>
+**Pipeline :**  
+- [ ] Test de l'app
+- [X] Build de l'app  
+- [X] Mise à jour du container docker  
