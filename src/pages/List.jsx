@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Item from './Item'
+import Item from '../components/Item'
 
 const List = (props) => {
     return(
@@ -18,7 +18,7 @@ const List = (props) => {
                     </thead>
                     <tbody>
                         {
-                            props.studentsArray.map((student) => (<Item key={student.id} student={student} />))
+                            props.allStudents.map((student) => (<Item key={student.id} student={student} />))
                         }
                     </tbody>
                 </table>

@@ -1,10 +1,14 @@
+import React from 'react'
+
 import { FaAddressCard } from 'react-icons/fa'
 import { HiTrash } from 'react-icons/hi'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 
 import { GET_DELETE_ID } from '../config.json'
 
 const Item = (props) => {
+
+    const history = useHistory()
 
     const name = props.student.nom
     const mail = props.student.mail
@@ -14,7 +18,7 @@ const Item = (props) => {
     const deleteStudent = () => {
         fetch(GET_DELETE_ID + id)
             .then(window.alert("Etudiant supprimé"))
-            .then(document.location.reload())
+            .then(history.push('/'))
             .catch(err => console.log(err))
     }
     

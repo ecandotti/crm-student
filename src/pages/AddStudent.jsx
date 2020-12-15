@@ -1,35 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import { POST_CREATE_ID } from '../config.json'
 
-class AddStudent extends React.Component {
+const AddStudent = () => {
 
-    constructor(props) {
-        super(props)
+    const history = useHistory()
 
-        this.state = {
-            nom: '',
-            mail: '',
-            role: 'etudiant',
-            password: ''
-        }
-    }
+    const [nom, setNom] = useState('')
+    const [mail, setMail] = useState('')
+    const [role] = useState('etudiant')
+    const [password, setPassword] = useState('')
 
-    handleChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
-
-    handleSubmit = event => {
+    const Submit = (event) => {
         event.preventDefault()
 
-        const name = this.state.nom
-        const mail = this.state.mail
-        const role = this.state.role
-        const password = this.state.password
-
-        const student = { 'nom': name, 'mail': mail, 'password': password,'role': role }
+        const student = { 'nom': nom, 'mail': mail, 'password': password,'role': role }
 
         fetch(POST_CREATE_ID, {
             method: 'POST',
@@ -38,24 +24,23 @@ class AddStudent extends React.Component {
                 'Content-Type': 'application/json'
             }})
         .then(console.log("done"))
-        .then(this.setState({
-                    name: '',
-                    mail: '',
-                    role: 'etudiant',
-                    password: ''
-            }))
+        .then(() => {
+            setNom('')
+            setMail('')
+            setPassword('')
+            history.push('/')
+        })
         .catch(err => console.log(err))
         window.alert("Etudiant ajouté")
         window.location.replace('/')
     }
-
-    render() {
-        return (
+    
+    return (
             <div className="container row">
-                <form className="col s12" onSubmit={this.handleSubmit}>
+                <form className="col s12" onSubmit={Submit}>
                     <div className="row">
                         <div className="input-field col s6">
-                            <input name="nom" id="nom" value={this.state.nom} onChange={this.handleChange} type="text" className="validate" required/>
+                            <input name="nom" id="nom" value={nom} onChange={event => setNom(event.target.value)} type="text" className="validate" required/>
                             <label htmlFor="nom">Nom Prénom</label>
                         </div>
                         <div className="col s6">
@@ -66,13 +51,13 @@ class AddStudent extends React.Component {
                     </div>
                     <div className="row">
                         <div className="input-field col s12">
-                            <input name="password" id="password" value={this.state.password} onChange={this.handleChange} type="password" className="validate" required/>
+                            <input name="password" id="password" value={password} onChange={event => setPassword(event.target.value)} type="password" className="validate" required/>
                             <label htmlFor="password">Password</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s12">
-                            <input name="mail" id="mail" type="email" value={this.state.mail} onChange={this.handleChange} className="validate" required/>
+                            <input name="mail" id="mail" type="email" value={mail} onChange={event => setMail(event.target.value)} className="validate" required/>
                             <label htmlFor="mail">Mail</label>
                         </div>
                     </div>
@@ -83,8 +68,7 @@ class AddStudent extends React.Component {
                     </div>
                 </form>
             </div>
-        )
-    }
+            )
 }
 
 export default AddStudent

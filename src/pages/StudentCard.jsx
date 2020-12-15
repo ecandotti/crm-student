@@ -4,9 +4,11 @@ import { GET_FIND_ID, GET_DELETE_ID } from '../config.json'
 
 import { MdModeEdit } from 'react-icons/md'
 import { HiTrash } from 'react-icons/hi'
+import { useHistory } from 'react-router-dom'
 
 const StudentCard = () => {
 
+    const history = useHistory()
     // Recup ID in URL (string)
     const idURL = window.location.pathname.split('/')[2]
 
@@ -34,7 +36,7 @@ const StudentCard = () => {
     const deleteStudent = () => {
         fetch(GET_DELETE_ID + id )
             .then(window.alert("Etudiant supprimé"))
-            .then(window.location.replace('/'))
+            .then(history.push('/'))
             .catch(err => console.log(err))
     }
 
