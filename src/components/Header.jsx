@@ -2,13 +2,13 @@ import React from 'react'
 
 import { useAuth } from '../context/auth'
 
-const Header = (props) => {
+const Header = () => {
     const title = 'Student Manager' 
     const { setAuthTokens } = useAuth()
+    const { authTokens } = useAuth()
 
     const logOut = () => {
         setAuthTokens()
-        props.setLoggedIn(false)
     }
 
     const LogOutStyle = {
@@ -26,10 +26,9 @@ const Header = (props) => {
                         <h5 className="left" style={TitleStyle}>{ title }</h5>
                     </div>
                     {
-                        props.isLoggedIn &&
+                        authTokens &&
                         <div className="right">
-                            <span>Connecté en tant que <b>Admin</b></span>
-                            {/* <button className="btn red" onClick={() => { auth.logout(() => { props.history.push('/') }) }}>Se Déconnecter</button> */}
+                            {/* <span>Connecté en tant que <b>Admin</b></span> */}
                             <span className="btn" style={LogOutStyle} onClick={logOut}>Se deconnecter</span>
                         </div>
                     }
