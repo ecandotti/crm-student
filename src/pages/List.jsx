@@ -2,7 +2,10 @@ import React from 'react'
 
 import Item from '../components/Item'
 
-const List = (props) => {
+import { useData } from '../context/data'
+
+const List = () => {
+    const { allStudents } = useData()
     return(
         <div className="container">
             <div>
@@ -18,7 +21,7 @@ const List = (props) => {
                     </thead>
                     <tbody>
                         {
-                            props.allStudents.map((student) => (<Item key={student.id} student={student} />))
+                            allStudents.map((student) => (<Item key={student.id} student={student} />))
                         }
                     </tbody>
                 </table>
