@@ -1,9 +1,16 @@
 # Student Manager  
 ## Front-End  
-****
-Création d'une image docker de l'app  
+
+**Informations :**  
+- [X] Authentification 
+- [X] Supprimer un utilisateur  
+- [X] Ajouter un utilisateur   
+- [X] Lister tous les utilisateurs   
+- [X] Afficher un utilisateur  
+- [X] Dockerization de l'app  
 
 **Pipeline :**  
-- [ ] Test de l'app
 - [X] Build de l'app  
-- [X] Mise à jour du container docker  
+- [ ] Test de l'app  
+- [X] Update docker image  
+- [ ] Deploy
