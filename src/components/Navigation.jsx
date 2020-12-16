@@ -1,24 +1,31 @@
 import React from 'react'
 
 import { FaUserPlus } from 'react-icons/fa'
-import { AiFillHome } from 'react-icons/ai'
+import { AiFillHome, AiOutlineReload } from 'react-icons/ai'
+
 import { NavLink } from 'react-router-dom'
 
-const Navigation = (props) => {
+import { useAuth } from '../context/auth'
+import { useData } from '../context/data'
+
+const Navigation = () => {
+    const { authTokens } = useAuth()
+    const { allStudents, updateData } = useData()
+    
     const ButtonStyle = {
-        marginLeft: '5px',
-        marginRight: '5px'
+        marginLeft: '5px'
     }
     const HeaderStyle = {
-        marginTop: "50px"
+        marginTop: '50px',
+        padding: 'none'
     }
     return(
         <>
             {
-                props.isLoggedIn &&
+                authTokens &&
                 <div className="container row" style={HeaderStyle}>
                     <div className="col s6">
-                        Nombre d'étudiant : { props.nbStudents } trouvés.
+                        Nombre d'étudiant : { allStudents.length } trouvés.
                     </div>
                     <div className="col s6 right-align">
                         <NavLink to="/addstudent" className="btn green waves-effect waves-light" style={ButtonStyle}>
@@ -27,6 +34,9 @@ const Navigation = (props) => {
                         <NavLink to="/" className="btn orange waves-effect waves-light" style={ButtonStyle}>
                             <AiFillHome />
                         </NavLink>
+                        <button className="btn blue waves-effect waves-light" style={ButtonStyle} onClick={() => updateData()}>
+                            <AiOutlineReload />
+                        </button>
                     </div>
                 </div>
             }
