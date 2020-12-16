@@ -1,38 +1,36 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
+import { useData } from '../context/data'
+
 import { POST_CREATE_ID } from '../config.json'
 
 const AddStudent = () => {
 
     const history = useHistory()
+    const { updateData } = useData()
 
     const [nom, setNom] = useState('')
     const [mail, setMail] = useState('')
     const [role] = useState('etudiant')
     const [password, setPassword] = useState('')
 
-    const Submit = (event) => {
+    const Submit = async (event) => {
         event.preventDefault()
 
         const student = { 'nom': nom, 'mail': mail, 'password': password,'role': role }
 
-        fetch(POST_CREATE_ID, {
+        await fetch(POST_CREATE_ID, {
             method: 'POST',
             body: JSON.stringify(student),
             headers: {
                 'Content-Type': 'application/json'
             }})
         .then(console.log("done"))
-        .then(() => {
-            setNom('')
-            setMail('')
-            setPassword('')
-            history.push('/')
-        })
         .catch(err => console.log(err))
         window.alert("Etudiant ajouté")
-        window.location.replace('/')
+        updateData()
+        history.push('/')
     }
     
     return (
