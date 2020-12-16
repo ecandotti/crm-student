@@ -13,4 +13,11 @@
 - [X] Build de l'app  
 - [ ] Test de l'app  
 - [X] Update docker image  
-- [ ] Deploy
+- [ ] Deploy  
+
+Avoir l'image Docker de l'app Front :  
+`docker login registry.gitlab.com`  
+`docker pull registry.gitlab.com/devops-2020-2021-student_manager/front:latest`  
+`docker run -p 8787:80 -d --name studentContainer registry.gitlab.com/devops-2020-2021-student_manager/front`  
+
+Il est important de _docker pull_ avant de créer le container (pour avoir la dernière version de l'image)
