@@ -1,6 +1,13 @@
 # Student Manager  
 ## Front-End  
 
+**Dependences :** 
+- React
+- ReactDOM
+- React Router
+- React Icons
+- MaterializeCSS
+
 **Informations :**  
 - [X] Authentification 
 - [X] Supprimer un utilisateur  
