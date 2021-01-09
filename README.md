@@ -22,6 +22,7 @@ Cette dernière sera disponible dans le Container Registry
 **Pipeline :**  
 - [X] Build de l'app  
 - [ ] Test de l'app  
+- [ ] Empêcher de relancer la pipeline pour un update d'un README.md (par example)
 - [X] Update docker image  
 - [ ] Deploy  
 
