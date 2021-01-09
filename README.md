@@ -1,6 +1,9 @@
 # Student Manager  
 ## Front-End  
 
+Mise en place d'une CI comprenant le build de l'app ainsi que la dockerisation de l'app  
+Cette dernière sera disponible dans le Container Registry
+
 **Dependences :** 
 - React
 - ReactDOM
