@@ -12,14 +12,15 @@ const Item = (props) => {
 
     const { updateData } = useData() 
 
-    const name = props.student.nom
-    const mail = props.student.mail
-    const role = props.student.role
-    const id = props.student.id
+    const name = props.profil.nom
+    const firstname = props.profil.firstname
+    const mail = props.profil.mail
+    const role = props.profil.role
+    const id = props.profil.id
 
-    const deleteStudent = () => {
+    const deleteProfil = () => {
         fetch(GET_DELETE_ID + id)
-            .then(window.alert("Etudiant supprimé"))
+            .then(window.alert("Profile supprimé"))
             .then(updateData)
             .catch(err => console.log(err))
     }
@@ -33,12 +34,13 @@ const Item = (props) => {
             <tr>
                 <td>{ id }</td>
                 <td className="center">{ name }</td>
+                <td className="center">{ firstname }</td>
                 <td className="center">{ mail }</td>
                 <td className="center">{ role }</td>
                 <td className="right-align">
                     <div className="row">
-                        <div onClick={deleteStudent} className="btn red waves-effect waves-light" style={ButtonStyle}><HiTrash /></div>
-                        <NavLink to={`/student/${id}`} className="btn purple waves-effect waves-light" style={ButtonStyle}><FaAddressCard /></NavLink>
+                        <div onClick={deleteProfil} className="btn red waves-effect waves-light" style={ButtonStyle}><HiTrash /></div>
+                        <NavLink to={`/profil/${id}`} className="btn purple waves-effect waves-light" style={ButtonStyle}><FaAddressCard /></NavLink>
                     </div>
                 </td>
             </tr>

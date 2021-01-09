@@ -7,8 +7,8 @@ import { PrivateRoute } from './PrivateRoute'
 import { GET_ALL_ID } from './config.json'
 
 import Login from './pages/Login'
-import AddStudent from './pages/AddStudent'
-import StudentCard from './pages/StudentCard'
+import AddProfil from './pages/AddProfil'
+import ProfilCard from './pages/ProfilCard'
 import List from './pages/List'
 
 import Header from './components/Header'
@@ -18,7 +18,7 @@ import { DataContext } from './context/data'
 const App = () => {
 
     const [authTokens, setAuthTokens] = useState('')
-    const [allStudents, setAllStudents] = useState([])
+    const [allProfils, setAllProfils] = useState([])
 
     const setTokens = (data) => {
         localStorage.setItem("tokens", JSON.stringify(data));
@@ -29,7 +29,7 @@ const App = () => {
         fetch(GET_ALL_ID)
             .then(response => response.json())
             .then(data => {
-                setAllStudents(data)
+                setAllProfils(data)
             })
     }
 
@@ -40,15 +40,15 @@ const App = () => {
     return (
             <div>
                 <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
-                    <DataContext.Provider value={{updateData, allStudents}}>
+                    <DataContext.Provider value={{updateData, allProfils}}>
                         <Router>
                             <Header />
                             <Navigation />
                             <Switch>
                                 <Route exact path="/login" component={Login} />
                                 <PrivateRoute exact path="/" component={List} />
-                                <PrivateRoute exact path="/addstudent" component={AddStudent} />
-                                <PrivateRoute exact path="/student/:id" component={StudentCard} />
+                                <PrivateRoute exact path="/addprofil" component={AddProfil} />
+                                <PrivateRoute exact path="/profil/:id" component={ProfilCard} />
                                 <Route path="*" component={() => 'ERREUR 404' } />
                             </Switch>
                         </Router>

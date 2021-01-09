@@ -10,7 +10,7 @@ import { useData } from '../context/data'
 
 const Navigation = () => {
     const { authTokens } = useAuth()
-    const { allStudents, updateData } = useData()
+    const { allProfils, updateData } = useData()
     
     const ButtonStyle = {
         marginLeft: '5px'
@@ -25,10 +25,10 @@ const Navigation = () => {
                 authTokens &&
                 <div className="container row" style={HeaderStyle}>
                     <div className="col s6">
-                        Nombre d'étudiant : { allStudents.length } trouvés.
+                        Nombre d'étudiant : { allProfils.length } trouvés.
                     </div>
                     <div className="col s6 right-align">
-                        <NavLink to="/addstudent" className="btn green waves-effect waves-light" style={ButtonStyle}>
+                        <NavLink to="/addprofil" className="btn green waves-effect waves-light" style={ButtonStyle}>
                             <FaUserPlus />
                         </NavLink>
                         <NavLink to="/" className="btn orange waves-effect waves-light" style={ButtonStyle}>

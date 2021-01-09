@@ -8,7 +8,7 @@ import { HiTrash } from 'react-icons/hi'
 
 import { useData } from '../context/data'
 
-const StudentCard = () => {
+const ProfilCard = () => {
     const history = useHistory()
     const { updateData } = useData()
 
@@ -17,26 +17,30 @@ const StudentCard = () => {
 
     const [id, setId] = useState()
     const [name, setName] = useState()
+    const [firstname, setFirstName] = useState()
     const [mail, setMail] = useState()
+    const [profil, setProfil] = useState()
     const [role, setRole] = useState()
     const [isAdmin] = useState(false)
     
-    let contactReq = []
+    let profilReq = []
 
     fetch(GET_FIND_ID + idURL)
         .then(response => response.json())
-        .then(req => {contactReq.push(req)})
+        .then(req => {profilReq.push(req)})
         .then(() => {
-            contactReq.forEach(element => {
+            profilReq.forEach(element => {
                 setId(element.id)
                 setName(element.name)
+                setFirstName(element.firstname)
                 setMail(element.mail)
+                setProfil(element.profil)
                 setRole(element.role)
             })
         })
         .catch(err => console.log(err))
 
-    const deleteStudent = () => {
+    const deleteProfil = () => {
         fetch(GET_DELETE_ID + id )
             .then(window.alert("Etudiant supprimé"))
             .then(updateData())
@@ -53,17 +57,18 @@ const StudentCard = () => {
                     </div>
                     <div className="card-stacked">
                         <div className="card-content">
-                            <h4 className="header">{ name }</h4>
+                            <h4 className="header">{ name } - { firstname }</h4>
                             <p>
                                 Admin : {isAdmin ? 'OUI' : 'NON'}<br/>
                                 Mail : { mail }<br/> 
+                                Profil : { profil }<br />
                                 Rôle : { role }<br/>
                                 ID : { id }
                             </p>
                         </div>
                         <div className="card-action">
                         <div className="row">
-                                <button onClick={deleteStudent} className="btn red waves-effect waves-light col s4 offset-s1"><HiTrash /></button>
+                                <button onClick={deleteProfil} className="btn red waves-effect waves-light col s4 offset-s1"><HiTrash /></button>
                                 <button className="btn disabled col offset-s1 s4"><MdModeEdit /></button>
                             </div>
                         </div>
@@ -78,4 +83,4 @@ const StudentCard = () => {
     }  
 }
 
-export default StudentCard
+export default ProfilCard

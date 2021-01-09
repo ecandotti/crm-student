@@ -5,7 +5,7 @@ import Item from '../components/Item'
 import { useData } from '../context/data'
 
 const List = () => {
-    const { allStudents } = useData()
+    const { allProfils } = useData()
     return(
         <div className="container">
             <div>
@@ -13,15 +13,15 @@ const List = () => {
                     <thead className="blue">
                         <tr className="white-text">
                             <th>ID</th>
-                            <th className="center">Nom Prénom</th>
+                            <th className="center">Nom</th>
+                            <th className="center">Prenom</th>
                             <th className="center">Mail</th>
-                            <th className="center">Rôle</th>
-                            <th className="right-align">Options</th>
+                            <th className="center">Specialité</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            allStudents.map((student) => (<Item key={student.id} student={student} />))
+                            allProfils.map((profil) => (<Item key={profil.id} profil={profil} />))
                         }
                     </tbody>
                 </table>
