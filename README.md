@@ -7,7 +7,7 @@
 
 ## Front-End  
 
-Mise en place d'une CI comprenant le build de l'app ainsi que la dockerisation de l'app  
+Implementation of a CI including the build of the app as well as the dockerization of the app
 
 # How to use the App
 ~~~bash
@@ -26,16 +26,16 @@ Enjoy :call_me_hand:
 
 **Informations :**  
 - [X] Authentification 
-- [X] Supprimer un utilisateur  
-- [X] Ajouter un utilisateur   
-- [X] Lister tous les utilisateurs   
-- [X] Afficher un utilisateur  
-- [X] Dockerization de l'app  
+- [X] Delete a user  
+- [X] Add a user   
+- [X] List all users   
+- [X] Display one user (by id)  
+- [X] Dockerization of the app  
 
 **Pipeline :**  
-- [X] Build de l'app  
-- [ ] Test de l'app  
-- [ ] Empêcher de relancer la pipeline pour un update d'un README.md (par example)
+- [X] App building  
+- [ ] Phase test  
+- [ ] Prevent restarting the pipeline for an update of a README.md (for example)
 - [X] Update docker image  
 - [ ] Deploy  
 
