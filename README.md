@@ -1,8 +1,21 @@
-# Student Manager  
+<h1 align="center">
+    <img height="250" hidth="250" src="https://cdn.pixabay.com/photo/2015/05/31/15/14/woman-792162_1280.jpg">
+</h1>
+
+# :student: - Student-Manager
+*<div align="center">Web Application in ReactJS to store student profiles (CRUD App) </div>*  
+
 ## Front-End  
 
 Mise en place d'une CI comprenant le build de l'app ainsi que la dockerisation de l'app  
-Cette dernière sera disponible dans le Container Registry
+
+# How to use the App
+~~~bash
+- git clone https://github.com/ecandotti/CRMStudent.git (Go inside the folder)
+- npm i
+- npm run start  
+Enjoy :call_me_hand:
+~~~
 
 **Dependences :** 
 - React
@@ -26,9 +39,14 @@ Cette dernière sera disponible dans le Container Registry
 - [X] Update docker image  
 - [ ] Deploy  
 
-Avoir l'image Docker de l'app Front :  
-`docker login registry.gitlab.com`  
-`docker pull registry.gitlab.com/devops-2020-2021-student_manager/front:latest`  
-`docker run -p 8787:80 -d --name studentContainer registry.gitlab.com/devops-2020-2021-student_manager/front`  
+## :camera: Some pictures
+<h1 align="center">
+    <img width="220px" height="400px" src="https://user-images.githubusercontent.com/66432682/99861567-c7140980-2b96-11eb-90cd-86d8dc1f97d2.png">
+    <img width="220px" height="400px" src="https://user-images.githubusercontent.com/66432682/99861577-cda28100-2b96-11eb-83b3-b077343ddd16.png">
+    <img width="220px" height="400px" src="https://user-images.githubusercontent.com/66432682/99861585-cf6c4480-2b96-11eb-9280-59a5725a8423.png">
+    <img width="220px" height="400px" src="https://user-images.githubusercontent.com/66432682/99861589-d1360800-2b96-11eb-885a-52fd8e8f8607.png">
+</h1>
 
-Il est important de _docker pull_ avant de créer le container (pour avoir la dernière version de l'image)
+## :busts_in_silhouette: Collaborators
+@pierreleffe  
+@TonyLch
