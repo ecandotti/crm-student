@@ -11,12 +11,13 @@ Implementation of a CI including the build of the app as well as the dockerizati
 
 # How to use the App
 ~~~bash
-- git clone https://github.com/ecandotti/CRMStudent.git (Go inside the folder)
-- npm i
-- npm run start  
-Enjoy :call_me_hand:
-~~~
-
+git clone https://github.com/ecandotti/CRMStudent.git (Go inside the folder)
+npm i
+npm run start  
+~~~  
+  
+Enjoy :call_me_hand:  
+  
 **Dependences :** 
 - React
 - ReactDOM
